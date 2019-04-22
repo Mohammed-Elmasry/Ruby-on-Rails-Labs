@@ -1,0 +1,226 @@
+Lect #4	 --- Last Lecture..
+
+	<<< digging deeper >>>
+
+	quick revision... on Associations
+
+	quick revision... on Lambda and Proc
+
+	both are oop realization of block -> Proc doesn't care about the number of argumnets
+	but Lambda will.
+
+#1	(todays' agenda)
+
+	Internationalization (i18n)
+	Action Mailer.
+	Active Job.
+	Testing Rails Applications.
+
+
+ 	<<< Internationaliztion >>>
+
+ 	there are two methods
+ 		localize <l> and translate <t> => looks up text translations and returns val according to the local.
+
+ 		localize <l> localizes the date and time object to local formats.
+
+ 		they're used i18n.t and i18n.l respectively.
+
+ 		rails adds all rb. and yml files from the config/locals 
+
+
+i18n.available -> sets the whitelisted locales.
+
+#2	ApplicationController is parent of all controllers.
+
+before_action :set_locale
+
+def set_locale
+	I18n.locale = params[:locale] || I18n.default_locale #this will set the locale in a requst.
+end
+
+#3	in ApplicationController#default_url_options => simply override this function 
+	{ locale: i18n.locale } 
+
+#4	using a scope '(:locale)', locale: /en|nl/ do  #this will create a default locale in url. 
+		resources :books
+	end
+	
+
+
+#5	get \:locale' => 'dashboard#index' #this will enable the normal root to be active as 	 well.
+	
+	NOTE THAT WE ADD BOTH ORIGINAL ROOT AND THE NEWLY CREATED ROOT WITH LOCALE SO BOTH
+	WORK FINE SIDE BY SIDE.
+
+#6	/config/locales is the folder that has all the locales we have defined by default.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------SECTION 2---------------------------------------------
+
+
+<<< Action Mailer >>>
+
+
+#1	it is like a controller.
+
+#2	rails generate mailer UserMailer => studlycase.
+
+#3	you build the application mailer #default class and within it you'll have methods
+	and each one will map to a view and each view you can place simple plain html and 
+	there is a shared instant variable between methods and corresponding views 
+	just like controller actions and their views.
+
+	YOU MUST USE THE _url WITH EMAILS IN ORDER TO PROVIDE THE FULL PATH AND NOT THE 
+	RELATIVE PATH FROM THE LOCALHOST.
+
+	$RAILS_ENV.rb this will show the current path.
+
+#4	configure the smtp client in order to send an email.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------SECTION 3----------------------------------------
+
+	<<< Active Job Basics >>>
+
+#1	is a framwork for declaring jobs and making them run ona  variety of queuing 			backends. these jobs can be everything from regularity scheduled clean-ups,..etcs
+
+#2	rails generate job guests_cleanup
+
+	it will generate a test and the file we'll use and another file..
+
+#3	within the code, first line will define the queue that this job would run on.
+
+#4	there will be a method that is "perform" and it'll contain the details for the 
+	job you're defining.
+
+#5	active job has some adapters for queuing service.
+		Sidekiq etc. activeJob: QueueAdapters.
+
+#6	active jobs has callbacks so after or before or around the job etc.
+
+	before_enqueue.
+	after_enqueue.
+	around_enqueue.
+	after_perform.
+	before_perform.
+	around_perform.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------SECTION 4-------------------------------------------
+
+	<<< TESTING RAILS APPLICATIONS >>>
+
+	how to write tests and why ?
+
+
+#1	"Unit Testing": It is a test of a certain capacity or certain unit of the
+	system.
+
+#2	"End to End testing": scenario based testing.
+
+#3	rails test : this will go directly to test dir and will run ever test in this dir.
+
+#4	to run a certain method within a certain file
+	rails test dir <complete_method_name>
+
+	for certain dir to run
+		rails test dir
+
+#5	test cases start with 'test' "detailed name of test block" do
+		
+	end
+
+
+NOTE THAT overcommit is a gem that will stop you from running a commit without running
+	your tests making sure you're developing a working code.
+
+	<<< system test >>>
+
+#6	this is a scenario-based testing methodology. (using browser).
+
+	
+#7	Screenshot Helper (this would take a screenshot and save it into tmp directory).
+
+-------------------------------------------------------------------------------------
+=====================================================================================

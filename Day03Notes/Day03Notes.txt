@@ -1,0 +1,57 @@
+Lect #3	
+
+	<<< AntiPatterns >>>
+
+#1	"Refactoring": the ability to make the code is cleaner (no duplicates) with the same
+	behaviour.
+
+	NOTE THAT THE BEST WAY TO MAKE A REFACTORING PROCESS WORK BETTER IS TDD
+	RULE THE WHOLE SYSTEM SHOULD BE COVERED WITH TEST CASES IN ORDER TO FIND OUT IF 
+	ANYTHING GOES WRONG.
+
+#2	It's better to define a set of methods in the class of a particular entity that 
+	comprises many different pieces of info in order to follow the law of Demeter.
+	(principle of least knowledge).
+
+#3	you can define a scope object which is basically just as if you have a block of code
+	and it makes a class method with its name
+
+	scope: ordered, order("last_name") => this means that there is an imaginary block of 
+	code that is called "ordered" and that's going to be used in the model this way.
+
+	NOTE THAT IF YOU WANT TO MAKE A CLEANER CODE, JUST ABSTRACT THE CODE AS FAR AS POSSIBLE. FOR EXAMPLE, THE CONTROLLER WILL TALK TO A MODEL SO KEEP THE LOGIC WITHIN
+	THE MODEL AND NOT WITHIN THE CONTROLLER EVEN IF IT CAN HANDLE IT.
+
+#4	Don't chain through multiple models.
+
+#5	Composed_of => pattern that maps some attributes of a class to others of another 		class.
+	
+	NOTE THAT COMPOSED_OF IS SAME AS DELEGATE BUT WITH METHODS AND NOT ATTRIBUTES.
+
+#6	you can override <=> operators at the same time.
+
+
+#7	composed_of  :balanace,
+				 :class_name => "Money",
+				 :mapping => [%w(balance_in_cents, amount_in_cents),
+				  %w(currency currency)]
+
+#8	modules of static methods are extend(ed) and those of instance methods are include(d)
+
+#9	transaction is a keyword in ruby that defines a way to work with database 
+	transactions. 
+
+	NOTE THAT IF A TRANSACTION FAIL MIDWAY IT WILL ROLLBACK AND NOT SAVE UP TO SUCCESS POINT.
+
+#10	You can generate 2 or more objects of different models from 1 form.
+
+#11	We include modules.
+
+#12	methods that you want people to override anyway define them with a default body as 		raise templateError and so if they override it with logic no error will occur but 		otherwise there will be errors.
+
+#13	Metaprogramming is a concept where you can use a small code to define a huge bulk of
+	code. -> this is a ruby thing I guess.
+
+
+<<< SELF Study >>>
+	Enum in Rails 5...

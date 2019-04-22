@@ -1,0 +1,156 @@
+Lect #2
+
+<<< Intro to Rails >>>
+
+#1	rails new DempApp
+
+#2	config folder has all configurations of the app in different applications.
+
+#3	"Dispatcher" -> maps routes to controller
+	"Controller" -> see which view it talks to (or model in case of CRUD)
+
+#4	
+
+	<<< Today's Agenda >>>
+
+	1- active records basics
+	2- Rails Database Migrations
+	3- Active Record Validations
+	4- Active 
+
+	Action Controller View
+	Rails rendering
+
+	Layout rendering
+
+-------------------------------------------
+
+	<<< Models>>>
+
+#1 "Active Record": is the M of MVC => it performs ORMing
+
+	conventions: 
+		Model Class 
+			it is a singular with studlycase
+
+		Database Table
+			book_clubs => small separated by underscore and it's plural
+
+	primary key => singular of table name and _id at the end.
+
+
+#2	rails generate model Article title:string text:text ...etc (fields and their types).
+
+#3	Article.where() => returns an array
+
+#4	Article.where(title:"Rails").order(created_at: asc) => orders according to a certain 	 fields.
+
+#5	rails db:migrate => this will make migration.
+	rails db:rollback=> this will rollback last migration (can optionally take steps n)
+	and will rollback n times.
+
+	<<< Active Record Validations >>>
+
+#6	validations are all in the model => these are validations of tables and stuff so
+	they're in the models.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------------SECTION 2-----------------------------------------
+
+	<<< Active Record Callbacks >>>
+
+	<<< Active Record Associations >>>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------SECTION 3---------------------------------------
+
+
+<<< Action Controller >>>
+
+	is the controller in MVC 
+
+	Note that: controller names are all plural
+
+#1	rails generate controller <Controller name(S)>
+
+#2	if there is a route  with /new it'll be envoked by def new if it exists.
+
+#3	RULE: ANY INSTANT VARIABLE INSIDE THE CONTROLLER IS SHARED WITH A VIEW JUST LIKE 		ANGULAR.
+
+#4	"params" => the object (hash) that are contained within url or not sent through url
+
+#5	"RESOURCE ROUTING": this can create the whole functions for the resource.
+
+
+
+<<< Action Views >>>
+
+ 	this is the view in MVC
+
+
+
+<<< Layout >>>
+
+	<%= yield %>
+
+<<< Form Helpers >>>
+
+
+
+<<< Rake Tasks >>>
+
+	witten under /lib/tasks
+
+	task task_name: [:prerequisite_task, :another_task_we_depend_on]
+
+"Device" a gem to build everything.
+

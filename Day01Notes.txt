@@ -1,0 +1,104 @@
+Lect #1
+
+---------------------------------SECTION 1------------------------------------------
+
+
+	<<< Intro to Ruby >>>
+
+#1	Datatypes:
+	they are loosely assigned (on assignment).
+		Numbers: integer float and doubles and all.
+		Booleans
+		Strings
+		Hashes
+		Array
+
+	Duck typing: when I see a bird that blah blah like a duck  ,.... then it's a duck
+
+	<<< Numbers >>>
+
+
+	<<< array >>>
+
+a = %w(albatros dog horse) => this is an array (it interprets to an array).
+
+
+:x => this is a symbol
+
+	<<< variables >>>
+var-> local variables.
+@  -> instance (within a class) (by default they're nil)
+@@ -> class variable and it's a static variable for the class (returns error if not initialized)
+
+	def initialize
+		puts "Number of employees #{@@employeesCount}"
+	end
+$var-> Global variable (it is seen in every scope => global class).(by default nil)
+A_CONSTANT => for configuration.
+
+pseudovariables => self, nil, true, false,
+
+predefined constants => __FILE__, __LINE__
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------SECTION 2---------------------------------------
+
+ <<< CONDITIONALS >>>
+
+
+
+#1	
+
+
+
+<<< BLOCKS >>>
+
+blocks don't have names and they're basically just a block of code.
+they have their own scopes.
+
+note that if you want to use a block on same line, please use the braces in order to 
+be able to distinguish what you're seeing.
+
+replace the braces with "do" and "end" and 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+attr_reader, attr_writer, attr_accessor
